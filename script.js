@@ -1,46 +1,30 @@
-const projects = [
-    { name: "Project 1", technology: "C#" },
-    { name: "Project 2", technology: "Java" },
-    { name: "Project 3", technology: "Node.js" },
-    // Add more projects as needed
-];
+// Add this function to script.js
+function displayCertifications() {
+    const certificationsList = document.getElementById('certificationsList');
 
-const education = [
-    { course: "Computer Science", grade: "A", year: 2020 },
-    { course: "Mathematics", grade: "B", year: 2018 },
-    // Add more education details as needed
-];
+    // Sample certifications data
+    const certifications = [
+        { name: "Certification 1", year: 2022 },
+        { name: "Certification 2", year: 2021 },
+        // Add more certifications as needed
+    ];
 
-function filterProjects() {
-    const filterInput = document.getElementById('techFilter').value.toLowerCase();
-    const projectList = document.getElementById('projectList');
-
-    projectList.innerHTML = '';
-
-    projects.forEach(project => {
-        if (project.technology.toLowerCase().includes(filterInput) || filterInput === '') {
-            const listItem = document.createElement('li');
-            listItem.textContent = `${project.name} - ${project.technology}`;
-            projectList.appendChild(listItem);
-        }
-    });
-}
-
-function displayEducation() {
-    const educationList = document.getElementById('educationList');
-
-    education.forEach(edu => {
+    certifications.forEach(certification => {
         const listItem = document.createElement('li');
-        listItem.textContent = `${edu.course} - Grade: ${edu.grade}, Year: ${edu.year}`;
-        educationList.appendChild(listItem);
+        listItem.textContent = `${certification.name} - Year: ${certification.year}`;
+        certificationsList.appendChild(listItem);
     });
 }
 
+// Modify the window.onload function
 window.onload = function () {
     if (document.getElementById('projectList')) {
         filterProjects();
     }
     if (document.getElementById('educationList')) {
         displayEducation();
+    }
+    if (document.getElementById('certificationsList')) {
+        displayCertifications(); // Call the new function for certifications
     }
 };
